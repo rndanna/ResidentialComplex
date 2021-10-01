@@ -1,4 +1,4 @@
-FROM php:7.4.5-fpm
+FROM php:8.0.3-fpm
 
 RUN apt-get update && apt-get install -y \
         zlib1g-dev \
@@ -25,5 +25,6 @@ RUN docker-php-ext-install zip
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 WORKDIR /var/www/
+#RUN chmod -R 777 /var/www
 
 CMD ["php-fpm"]
