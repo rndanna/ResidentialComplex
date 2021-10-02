@@ -5,12 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Currency extends Model
+class Apartament extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-        'currency',
-        'usd',
-    ];
 }
