@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\TelegramController;
+use App\Http\Controllers\Api\ResidentialComplexController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,4 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::any('/tgHandler/{token}', TelegramController::class);
+Route::apiResources([
+    'ResidentialComplex' => ResidentialComplexController::class
+]);
