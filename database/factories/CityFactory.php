@@ -19,10 +19,10 @@ class CityFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
-            'name' => $this->faker->country
+            'name' => $this->faker->city
         ];
     }
 }

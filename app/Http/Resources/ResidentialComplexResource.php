@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ResidentialComplexResource extends JsonResource
@@ -9,20 +10,17 @@ class ResidentialComplexResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
+     * @param  Request  $request
+     * @return array
      */
-    public function toArray($request)
+    public function toArray($request): array
     {
         return [
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-//            'city' => new CityResource($this->city),
             'city_id' => $this->city_id,
-            'district_id' => $this->district_id,
-//            'district' => new DistrictResource($this->district),
-            'img' => $this->img
+            'district_id' => $this->district_id
         ];
     }
 }

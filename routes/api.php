@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\Api\ApartmentController;
+use App\Http\Controllers\Api\CityController;
 use App\Http\Controllers\Api\ResidentialComplexController;
+use App\Http\Controllers\Api\LiterController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::apiResources([
-    'ResidentialComplex' => ResidentialComplexController::class
+    'ResidentialComplex' => ResidentialComplexController::class,
+    'Liter' => LiterController::class,
+    'City' => CityController::class,
+    'Apartment' => ApartmentController::class
 ]);

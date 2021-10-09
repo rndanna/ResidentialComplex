@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CityResource extends JsonResource
+class ApartmentResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -13,12 +13,17 @@ class CityResource extends JsonResource
      * @param  Request  $request
      * @return array
      */
-    public function toArray($request): array
+    public function toArray($request)
     {
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'districts' => DistrictResource::collection($this->districts)
+            'isAvailable' => $this->isAvailable,
+            'count_rooms' => $this->count_rooms,
+            'entrance' => $this->entrance,
+            'square' => $this->square,
+            'floor' => $this->floor,
+            'price' => $this->price
         ];
     }
 }

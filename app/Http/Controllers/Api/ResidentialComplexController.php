@@ -3,41 +3,36 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Filters\ResidentialComplexFilter;
 use App\Http\Resources\ResidentialComplexResource;
 use Illuminate\Http\Request;
 use \App\Models\ResidentialComplex;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Response;
 
 class ResidentialComplexController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @param Request $request
+     * @return AnonymousResourceCollection
      */
-    public function index(Request $request)
+    public function index(Request $request): AnonymousResourceCollection
     {
-        return ResidentialComplexResource::collection(ResidentialComplex::paginate(3));
+        $params = $request->except('_token');
+        $residentialComplexes = ResidentialComplex::residentialComplexesByFilters($params)->paginate(8);
+
+        return ResidentialComplexResource::collection($residentialComplexes);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return ResidentialComplexResource
      */
-    public function show($id)
+    public function show(int $id): ResidentialComplexResource
     {
         return new ResidentialComplexResource(ResidentialComplex::findOrFail($id));
     }
@@ -45,11 +40,11 @@ class ResidentialComplexController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param int $id
+     * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, int $id): Response
     {
         //
     }
@@ -57,10 +52,10 @@ class ResidentialComplexController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return Response
      */
-    public function destroy($id)
+    public function destroy(int $id): Response
     {
         //
     }

@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateLitersTable extends Migration
 {
+    protected $dateFormat = 'd.m.Y';
+
     /**
      * Run the migrations.
      *
@@ -14,15 +16,14 @@ class CreateLitersTable extends Migration
     public function up()
     {
         Schema::create('liters', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name', 40)->nullable();
-            $table->smallInteger('countRooms');
-            $table->string('completionDate');
+            $table->id();
+            $table->string('name', 40);
+            $table->date('completion_date');
+            $table->timestamps();
             $table->foreignId('complex_id')
                 ->constrained('residential_complexes')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->timestamps();
         });
     }
 

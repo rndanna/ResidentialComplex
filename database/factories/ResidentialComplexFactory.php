@@ -19,14 +19,13 @@ class ResidentialComplexFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
-            'name' => $this->faker->regexify('[A-Za-z0-9]{20}'),
+            'name' => $this->faker->numerify('Complex ###'),
             'description' => $this->faker->sentence,
             'city_id' => $this->faker->randomDigitNotNull,
             'district_id' => $this->faker->randomDigitNotNull,
-            'img' => $this->faker->word . '.jpt'
         ];
     }
 }

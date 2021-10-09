@@ -13,11 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
         $this->call([
             CitySeeder::class,
             DistrictSeeder::class,
-            ResidentialComplexSeeder::class
+            ResidentialComplexSeeder::class,
+            LiterSeeder::class,
+            ApartmentSeeder::class
         ]);
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateApartamentsTable extends Migration
+class CreateApartmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,20 @@ class CreateApartamentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('apartaments', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name', 40)->nullable();
+        Schema::create('apartments', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 40);
             $table->boolean('isAvailable')->default(true);
+            $table->integer('count_rooms');
+            $table->integer('square');
+            $table->integer('entrance');
+            $table->integer('floor');
+            $table->unsignedDouble('price');
+            $table->timestamps();
             $table->foreignId('liter_id')
                 ->constrained('liters')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->integer('squareMeters');
-            $table->smallInteger('entrance');
-            $table->smallInteger('floor');
-            $table->string('img');
-            $table->integer('price');
-            $table->timestamps();
         });
     }
 
@@ -37,6 +37,6 @@ class CreateApartamentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apartaments');
+        Schema::dropIfExists('apartments');
     }
 }

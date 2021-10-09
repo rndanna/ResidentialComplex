@@ -14,9 +14,10 @@ class CreateResidentialComplexesTable extends Migration
     public function up()
     {
         Schema::create('residential_complexes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name', 50)->nullable();
+            $table->id();
+            $table->string('name', 50);
             $table->text('description');
+            $table->timestamps();
             $table->foreignId('city_id')
                 ->constrained('cities')
                 ->onUpdate('cascade')
@@ -25,8 +26,6 @@ class CreateResidentialComplexesTable extends Migration
                 ->constrained('districts')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->string('img');
-            $table->timestamps();
         });
     }
 
