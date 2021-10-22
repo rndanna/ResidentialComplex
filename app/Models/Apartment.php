@@ -18,6 +18,10 @@ class Apartment extends Model
         'name',
         'count_rooms',
         'isAvailable',
-        'square'
+        'square',
+        'entrance',
+        'floor',
+        'price',
+        'liter_id'
     ];
 }

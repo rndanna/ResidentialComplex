@@ -15,6 +15,12 @@ class Liter extends Model
         'updated_at'
     ];
 
+    protected $fillable = [
+        'name',
+        'completion_date',
+        'complex_id'
+    ];
+
     public function apartments(): HasMany
     {
         return $this->hasMany(Apartment::class);

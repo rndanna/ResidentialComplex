@@ -13,7 +13,9 @@ class ResidentialComplex extends Model
 
     protected $fillable = [
         'name',
-        'description'
+        'description',
+        'city_id',
+        'district_id'
     ];
 
     public function city(): BelongsTo
