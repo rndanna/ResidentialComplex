@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "612a0aa6559600c9d85ccd26f38b7fa8",
+    "content-hash": "76f1119ab0e15f4c08ee6a7d29e2699e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2339,16 +2339,16 @@
         },
         {
             "name": "orchid/platform",
-            "version": "10.19.2",
+            "version": "10.21.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchidsoftware/platform.git",
-                "reference": "524bef8c6473b8fc7e6b637759edc92fea240b9e"
+                "reference": "399d2c1c426a919c56a6c8deedcc477cdf3e1603"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchidsoftware/platform/zipball/524bef8c6473b8fc7e6b637759edc92fea240b9e",
-                "reference": "524bef8c6473b8fc7e6b637759edc92fea240b9e",
+                "url": "https://api.github.com/repos/orchidsoftware/platform/zipball/399d2c1c426a919c56a6c8deedcc477cdf3e1603",
+                "reference": "399d2c1c426a919c56a6c8deedcc477cdf3e1603",
                 "shasum": ""
             },
             "require": {
@@ -2444,7 +2444,7 @@
                     "type": "opencollective"
                 }
             ],
-            "time": "2021-10-16T00:13:30+00:00"
+            "time": "2021-10-22T00:27:23+00:00"
         },
         {
             "name": "phpoption/phpoption",

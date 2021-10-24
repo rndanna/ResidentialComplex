@@ -25,6 +25,7 @@ RUN docker-php-ext-install zip
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 WORKDIR /var/www/
-#RUN chmod -R 777 /var/www
+RUN chmod -R 777 /var/www
+RUN chmod -R 777 /var/lib/pgsql/12.3/data/
 
 CMD ["php-fpm"]
