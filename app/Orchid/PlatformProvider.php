@@ -28,6 +28,17 @@ class PlatformProvider extends OrchidServiceProvider
     public function registerMainMenu(): array
     {
         return [
+            Menu::make('Жилые комплексы')
+            ->icon('home')
+            ->route('residentialComplexes'),
+
+            Menu::make('Города и районы')
+                ->icon('code')
+                ->list([
+                    Menu::make('Города')->route('city'),
+                    Menu::make('Районы')->route('district'),
+                ]),
+
             Menu::make('Example screen')
                 ->icon('monitor')
                 ->route('platform.example')

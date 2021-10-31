@@ -6,16 +6,33 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Orchid\Attachment\Attachable;
+use Orchid\Attachment\Models\Attachment;
+use Orchid\Filters\Filterable;
+use Orchid\Screen\AsSource;
 
 class ResidentialComplex extends Model
 {
     use HasFactory;
+    use AsSource;
+    use Filterable;
+    use Attachable;
 
     protected $fillable = [
         'name',
         'description',
         'city_id',
-        'district_id'
+        'district_id',
+        'created_at',
+        'updated_at'
+    ];
+
+    protected array $allowedSorts = [
+        'name'
+    ];
+
+    protected $allowedFilters = [
+        'name'
     ];
 
     public function city(): BelongsTo
@@ -26,6 +43,11 @@ class ResidentialComplex extends Model
     public function district(): BelongsTo
     {
         return $this->belongsTo(District::class);
+    }
+
+    public function image()
+    {
+        return $this->hasMany(Attachment::class)->where('group','photo');
     }
 
     public static function residentialComplexesByFilters($params): Builder

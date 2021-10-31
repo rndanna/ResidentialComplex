@@ -21,7 +21,6 @@ class ResidentialComplexController extends Controller
     {
         $params = $request->except('_token');
         $residentialComplexes = ResidentialComplex::residentialComplexesByFilters($params)->paginate(8);
-
         return ResidentialComplexResource::collection($residentialComplexes);
     }
 
